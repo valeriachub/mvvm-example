@@ -16,6 +16,7 @@ class FriendDetailsViewModel {
     // MARK: - Init
     
     init(friendModel: FriendModel) {
+        
         self.friendModel = friendModel
     }
 }

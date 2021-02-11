@@ -13,6 +13,7 @@ protocol Router {
 }
 
 enum Route: String {
+    
     case friendDetails
 }
 

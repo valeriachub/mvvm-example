@@ -29,12 +29,10 @@ class FriendCell: UITableViewCell, ConfigurableCell {
     }
     
     // MARK: - Methods
-
+    
     func configure(with friendModel: FriendModel) {
         
-        
-            nameLabel.text = "Name: \(friendModel.name)"
-            ageLabel.text = "Age: \(friendModel.age)"
-        
+        nameLabel.text = "Name: \(friendModel.name)"
+        ageLabel.text = "Age: \(friendModel.age)"
     }
 }

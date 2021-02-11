@@ -23,12 +23,12 @@ class FriendsViewModel {
     
     init() {
         apiServise = APIService()
-        getFriendsData()
     }
     
     // MARK: - Methods
     
     private func getFriendsData() {
+        
         apiServise.getFriendsData { [weak self] friendModels in
             
             self?.friendModels = friendModels.filter({ friendModel in
@@ -37,6 +37,18 @@ class FriendsViewModel {
             
         } failure: { error in
             print(error)
+        }
+    }
+}
+
+// MARK: - Extension ViewControllerEvent
+
+extension FriendsViewModel: ViewControllerEvent {
+    
+    func sendEvent(_ event: Event) {
+        switch event {
+        case .viewWillAppear:
+            getFriendsData()
         }
     }
 }

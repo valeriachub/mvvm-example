@@ -26,6 +26,7 @@
 		AB094BC925D569F4008B56AC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB094BC825D569F4008B56AC /* Router.swift */; };
 		AB094BD225D56C67008B56AC /* FriendsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB094BD125D56C67008B56AC /* FriendsRouter.swift */; };
 		AB094BDA25D56D18008B56AC /* FriendDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB094BD925D56D18008B56AC /* FriendDetailsViewModel.swift */; };
+		AB094BE725D58A72008B56AC /* ViewControllerEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB094BE625D58A72008B56AC /* ViewControllerEvent.swift */; };
 		E94487110A0A088DB3A83D41 /* Pods_MyFriends_MyFriendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4BBFD2939A60230939538F /* Pods_MyFriends_MyFriendsUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		AB094BC825D569F4008B56AC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AB094BD125D56C67008B56AC /* FriendsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRouter.swift; sourceTree = "<group>"; };
 		AB094BD925D56D18008B56AC /* FriendDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailsViewModel.swift; sourceTree = "<group>"; };
+		AB094BE625D58A72008B56AC /* ViewControllerEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEvent.swift; sourceTree = "<group>"; };
 		C553CE59B5AA674A80B84D1E /* Pods-MyFriends-MyFriendsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFriends-MyFriendsUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyFriends-MyFriendsUITests/Pods-MyFriends-MyFriendsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0A3D7C6771AC995F77B43A1 /* Pods-MyFriendsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFriendsTests.debug.xcconfig"; path = "Target Support Files/Pods-MyFriendsTests/Pods-MyFriendsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 				AB094B0325D52E58008B56AC /* Assets.xcassets */,
 				AB094B0825D52E58008B56AC /* Info.plist */,
 				AB094BCD25D56C4D008B56AC /* Router */,
+				AB094BE625D58A72008B56AC /* ViewControllerEvent.swift */,
 			);
 			path = MyFriends;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				AB094BC025D56760008B56AC /* FriendDetailsController.swift in Sources */,
 				AB094BDA25D56D18008B56AC /* FriendDetailsViewModel.swift in Sources */,
 				AB094B3725D52F49008B56AC /* FriendsViewModel.swift in Sources */,
+				AB094BE725D58A72008B56AC /* ViewControllerEvent.swift in Sources */,
 				AB094BC925D569F4008B56AC /* Router.swift in Sources */,
 				AB094BAC25D53FC9008B56AC /* R.generated.swift in Sources */,
 				AB094AFF25D52E55008B56AC /* FriendsController.swift in Sources */,
