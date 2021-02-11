@@ -30,10 +30,7 @@ class FriendsViewModel {
     private func getFriendsData() {
         
         apiServise.getFriendsData { [weak self] friendModels in
-            
-            self?.friendModels = friendModels.filter({ friendModel in
-                return Int(friendModel.age) ?? 0 < 40
-            })
+            self?.friendModels = friendModels
             
         } failure: { error in
             print(error)

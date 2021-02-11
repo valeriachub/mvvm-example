@@ -7,6 +7,7 @@
 
 import UIKit
 import TableKit
+import Kingfisher
 
 class FriendCell: UITableViewCell, ConfigurableCell {
     
@@ -16,11 +17,7 @@ class FriendCell: UITableViewCell, ConfigurableCell {
     
     @IBOutlet weak var friendImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
-    
-    // MARK: - Properties
-    
-    private var friendModel: FriendModel!
+    @IBOutlet weak var urlLabel: UILabel!
     
     // MARK: - Lifecycle
     
@@ -32,7 +29,8 @@ class FriendCell: UITableViewCell, ConfigurableCell {
     
     func configure(with friendModel: FriendModel) {
         
-        nameLabel.text = "Name: \(friendModel.name)"
-        ageLabel.text = "Age: \(friendModel.age)"
+        nameLabel.text = "Name: \(friendModel.name ?? "")"
+        urlLabel.text = "Github: \(friendModel.url ?? "")"
+        friendImageView.kf.setImage(with: URL(string: friendModel.image ?? ""))
     }
 }

@@ -13,7 +13,7 @@ class FriendDetailsController: UIViewController {
     
     @IBOutlet weak var friendImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var urlLabel: UILabel!
     
     // MARK: - Properties
     
@@ -37,7 +37,8 @@ class FriendDetailsController: UIViewController {
     
     private func updateUI() {
         
-        nameLabel.text = "Name: \(friendDetailsViewModel.friendModel.name)"
-        ageLabel.text = "Age: \(friendDetailsViewModel.friendModel.age)"
+        nameLabel.text = "Name: \(friendDetailsViewModel.friendModel.name ?? "")"
+        urlLabel.text = "Github: \(friendDetailsViewModel.friendModel.url ?? "")"
+        friendImageView.kf.setImage(with: URL(string: friendDetailsViewModel.friendModel.image ?? ""))
     }
 }

@@ -1,24 +1,28 @@
 PODS:
+  - Kingfisher (6.1.0)
   - R.swift (5.3.1):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - TableKit (2.11.0)
 
 DEPENDENCIES:
+  - Kingfisher (~> 6.0)
   - R.swift
   - TableKit
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - R.swift
     - R.swift.Library
     - TableKit
 
 SPEC CHECKSUMS:
+  Kingfisher: f5d8d60a0ef3edd642fd781bae60918599901aff
   R.swift: 56ec7e3aef34b9eee47a659e42462db2c1cc5ac3
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   TableKit: 8a1a267d841a2da638ea09bdb0db33aedb459fa8
 
-PODFILE CHECKSUM: 92dd1b38520447f24cba07033788b444cef20667
+PODFILE CHECKSUM: f29658a3e6f09e28fcf7c32d0bd022e68bef98e7
 
 COCOAPODS: 1.10.0

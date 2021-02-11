@@ -11,7 +11,7 @@ class APIService {
     
     // MARK: - Properies
     
-    private let friendsURL = URL(string: "http://dummy.restapiexample.com/api/v1/employees")!
+    private let friendsURL = URL(string: "https://api.github.com/users")!
     
     // MARK: - Methods
     
@@ -19,8 +19,8 @@ class APIService {
         URLSession.shared.dataTask(with: friendsURL) { data, urlResponse, error in
             if let data = data {
                 let jsonDecoder = JSONDecoder()
-                if let friendsData = try? jsonDecoder.decode(FriendsData.self, from: data) {
-                    success(friendsData.data)
+                if let friendsData = try? jsonDecoder.decode([FriendModel].self, from: data) {
+                    success(friendsData)
                 } else {
                     failure("Error parsing FriendsData");
                 }
