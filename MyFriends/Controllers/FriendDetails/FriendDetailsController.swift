@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FriendDetailsController: UIViewController {
+class FriendDetailsController: UIViewController, Storyboarded {
     
     // MARK: - IBOutlet
     
@@ -17,8 +17,8 @@ class FriendDetailsController: UIViewController {
     
     // MARK: - Properties
     
-    private var friendDetailsViewModel: FriendDetailsViewModel!
-    private var router: Router?
+    var viewModel: FriendDetailsViewModel!
+    weak var coordinator: FriendsCoordinator!
     
     // MARK: - Lifecycle
     
@@ -30,15 +30,10 @@ class FriendDetailsController: UIViewController {
     
     // MARK: - Methods
     
-    func setViewModel(_ viewModel: FriendDetailsViewModel) {
-        
-        friendDetailsViewModel = viewModel
-    }
-    
     private func updateUI() {
         
-        nameLabel.text = "Name: \(friendDetailsViewModel.friendModel.name ?? "")"
-        urlLabel.text = "Github: \(friendDetailsViewModel.friendModel.url ?? "")"
-        friendImageView.kf.setImage(with: URL(string: friendDetailsViewModel.friendModel.image ?? ""))
+        nameLabel.text = "Name: \(viewModel.friendModel.name ?? "")"
+        urlLabel.text = "Github: \(viewModel.friendModel.url ?? "")"
+        friendImageView.kf.setImage(with: URL(string: viewModel.friendModel.image ?? ""))
     }
 }

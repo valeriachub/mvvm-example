@@ -8,10 +8,12 @@
 import UIKit
 import TableKit
 
-class FriendsController: UIViewController {
+class FriendsController: UIViewController, Storyboarded {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableDirector = TableDirector(tableView: tableView)
@@ -21,23 +23,19 @@ class FriendsController: UIViewController {
     // MARK: - Properties
     
     private var tableDirector: TableDirector!
-    private var friendsViewModel: FriendsViewModel!
-    private var router: Router!
+    var viewModel: FriendsViewModel!
+    weak var coordinator: FriendsCoordinator!
     
     // MARK: - Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        router = FriendsRouter()
-        friendsViewModel = FriendsViewModel()
-        bindToViewModel()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        friendsViewModel.sendEvent(.viewWillAppear)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        bindFriendModels()
+        bindLoading()
+        viewModel.getFriendsData()
     }
     
     // MARK: - Methods
@@ -48,22 +46,40 @@ class FriendsController: UIViewController {
         tableDirector += TableSection(rows: friendModels.map {
             let row = TableRow<FriendCell>(item: $0)
                 .on(.select) { [weak self] options in
-                    guard let self = self else {
-                        return
-                    }
+                    
                     options.cell?.setSelected(false, animated: true)
-                    self.router.route(to: Route.friendDetails.rawValue, from: self, params: options.item)
+                    self?.coordinator.showFriendDetails(friendModel: options.item)
                 }
             return row
         })
         tableDirector.reload()
     }
     
-    private func bindToViewModel() {
+    private func bindFriendModels() {
         
-        friendsViewModel.bind = { [weak self] friendModels in
+        viewModel.bindFriendModels = { [weak self] friendModels in
+            
             DispatchQueue.main.async { [weak self] in
                 self?.setTableView(with: friendModels)
+            }
+        }
+    }
+    
+    private func bindLoading() {
+        
+        loadingView.isHidden = true
+        
+        viewModel.bindLoading = { isLoading in
+            
+            DispatchQueue.main.async { [weak self] in
+                
+                if isLoading {
+                    self?.loadingView.isHidden = false
+                    self?.activityIndicator.startAnimating()
+                } else {
+                    self?.loadingView.isHidden = true
+                    self?.activityIndicator.stopAnimating()
+                }
             }
         }
     }

@@ -83,18 +83,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gK5-ux-KVe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2HR-D3-6LO">
+                                        <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.19943882039999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="2HR-D3-6LO" firstAttribute="centerY" secondItem="gK5-ux-KVe" secondAttribute="centerY" id="FlP-XI-PP8"/>
+                                    <constraint firstItem="2HR-D3-6LO" firstAttribute="centerX" secondItem="gK5-ux-KVe" secondAttribute="centerX" id="cav-EG-OON"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L4I-7K-rZK" secondAttribute="trailing" constant="20" id="Ch3-KA-yhk"/>
+                            <constraint firstAttribute="bottom" secondItem="gK5-ux-KVe" secondAttribute="bottom" id="EYn-oh-eya"/>
+                            <constraint firstItem="gK5-ux-KVe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Kwh-cC-gjC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L4I-7K-rZK" secondAttribute="bottom" constant="20" id="NQc-sE-ONO"/>
                             <constraint firstItem="L4I-7K-rZK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="iQ6-R2-hkt"/>
+                            <constraint firstItem="gK5-ux-KVe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jk9-to-nxX"/>
                             <constraint firstItem="L4I-7K-rZK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="lBn-21-pZB"/>
+                            <constraint firstItem="gK5-ux-KVe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="osa-zq-Uf7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Friends" id="uKb-ko-t2K"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="2HR-D3-6LO" id="JWh-e6-cWF"/>
+                        <outlet property="loadingView" destination="gK5-ux-KVe" id="zzF-GZ-bHV"/>
                         <outlet property="tableView" destination="L4I-7K-rZK" id="HPm-oL-BKo"/>
                     </connections>
                 </viewController>

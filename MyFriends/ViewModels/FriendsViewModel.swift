@@ -14,38 +14,40 @@ class FriendsViewModel {
     private var apiServise: APIService!
     private(set) var friendModels = [FriendModel]() {
         didSet {
-            bind?(friendModels)
+            bindFriendModels?(friendModels)
         }
     }
-    var bind: (([FriendModel]) -> ())?
+    var bindFriendModels: (([FriendModel]) -> ())?
+    
+    private(set) var loading: Bool = false {
+        didSet {
+            bindLoading?(loading)
+        }
+    }
+    
+    var bindLoading: ((Bool) -> ())?
     
     // MARK: - Init
     
-    init() {
-        apiServise = APIService()
+    init(apiService: APIService = APIService()) {
+        self.apiServise = apiService
     }
     
     // MARK: - Methods
     
-    private func getFriendsData() {
+    func getFriendsData() {
+        
+        loading = true
         
         apiServise.getFriendsData { [weak self] friendModels in
+            
+            self?.loading = false
             self?.friendModels = friendModels
             
-        } failure: { error in
+        } failure: { [weak self] error in
+            
+            self?.loading = false
             print(error)
-        }
-    }
-}
-
-// MARK: - Extension ViewControllerEvent
-
-extension FriendsViewModel: ViewControllerEvent {
-    
-    func sendEvent(_ event: Event) {
-        switch event {
-        case .viewWillAppear:
-            getFriendsData()
         }
     }
 }
